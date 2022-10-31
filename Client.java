@@ -64,7 +64,7 @@ public class Client {
 				}
 			}
 		in.close();
-		}catch(Exception e) {		
+		} catch(Exception e) {		
 			System.out.println( "Exception: " + e.toString()); 
 		}
 	}

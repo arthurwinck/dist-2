@@ -14,7 +14,7 @@ public class Server {
 		}
 		try {  
 	        System.setProperty("java.rmi.server.hostname", "127.0.0.1");
-	    	Naming.rebind("rmi://127.0.0.1/List1", new Table()); 
+	    	Naming.rebind("rmi://127.0.0.1/List1", new List()); 
 	    	// Naming.rebind("List1", new List());  
 	    }  
 	    catch( Exception e ) {  
