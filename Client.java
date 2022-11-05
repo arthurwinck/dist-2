@@ -15,7 +15,7 @@ public class Client {
 	    		System.setSecurityManager(new SecurityManager());
 	    	}	    	 
 	    	try {  
-	            list =(ListInterface)Naming.lookup( "rmi://127.0.0.1/List1");  
+	            list =(ListInterface)Naming.lookup("rmi://127.0.0.1/List1");  
 	    	}
 	        catch(RemoteException e ) {  
 	            System.out.println();  
@@ -50,14 +50,22 @@ public class Client {
 				} else if(comando.equalsIgnoreCase("get")) {
 					key = in.nextInt();
 					value = list.get(key);
-					System.out.println("result: "+ value);
+					if (value == null) {
+						System.out.println("Item não encontrado para get");
+					} else {
+						System.out.println("Retornou item: "+ value);
+					}
 				} else if(comando.equalsIgnoreCase("remove")) {
 					key = in.nextInt();
 					value = list.remove(key);
-					System.out.println("result: "+ value);
+					if (value == null) {
+						System.out.println("Item não encontrado para remove");
+					} else {
+						System.out.println("Removeu item: "+ value);
+					}
 				} else if(comando.equalsIgnoreCase("size")) {
 					value = list.size();
-					System.out.println("result: "+ value);
+					System.out.println("Tamanho da lista: "+ value);
 				} else {
 					System.out.println("Saindo do programa");
 					break;
